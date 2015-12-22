@@ -1,0 +1,22 @@
+/* miniconfirm [Start] */
+.miniconfirm { position: absolute; display: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
+.miniconfirm:after { display: block; content: ""; clear: both; }
+.miniconfirm .mc_content { border: 1px solid #ddd; position: relative; display: block; background-color: #fff; -webkit-border-radius: 3px; box-shadow: 0 0 8px #b5b5b5; -moz-border-radius: 3px; border-radius: 3px; }
+.miniconfirm .mc_content:after { display: block; content: ""; clear: both; }
+.miniconfirm .mc_content:before { border-color: #ddd transparent transparent transparent; border-style: solid; border-width: 8px; width: 0; height: 0; display: block; position: absolute; bottom: -16px; left: calc(50% - 8px); content: ""; }
+.miniconfirm .mc_content .ms_h6 { padding: 10px 5px; background-color: #eee; font-size: 14px; color: #666; font-weight: 600; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-radius: 3px; -moz-border-radius-topleft: 3px; -moz-border-radius-topright: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+.miniconfirm .mc_content .mc_buttons { padding: 5px; }
+.miniconfirm .mc_content .mc_buttons:after { display: block; content: ""; clear: both; }
+.miniconfirm .mc_content .mc_buttons a { border: 1px solid #eee; background-color: #fff; height: 30px; line-height: 30px; text-align: center; text-decoration: none; color: #666; display: block; width: calc(50% - 2.5px); float: left; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; box-sizing: border-box; -webkit-transition: All 500ms ease; -moz-transition: All 500ms ease; -o-transition: All 500ms ease; transition: All 500ms ease; }
+.miniconfirm .mc_content .mc_buttons a i:before { font-size: 13px; }
+.miniconfirm .mc_content .mc_buttons a.mc_yes { margin-left: 2.5px; }
+.miniconfirm .mc_content .mc_buttons a.mc_no { margin-right: 2.5px; }
+.miniconfirm .mc_content .mc_buttons a.mc_yes:hover { background-color: #33b86c; border-color: #106f39; }
+.miniconfirm .mc_content .mc_buttons a.mc_no:hover { background-color: #ef5350; border-color: #8f1e1c; }
+.miniconfirm .mc_content .mc_buttons a:hover i:before { color: #fff; }
+.miniconfirm.rightcenter { padding-left: 12px; }
+.miniconfirm.leftcenter { padding-right: 12px; }
+.miniconfirm.rightcenter .mc_content:before { border-color: transparent #ddd transparent transparent; border-style: solid; border-width: 8px; width: 0; height: 0; display: block; position: absolute; left: -16px; top: calc(50% - 8px); content: ""; }
+.miniconfirm.leftcenter .mc_content:before { border-color: transparent transparent transparent #ddd; border-style: solid; border-width: 8px; width: 0; height: 0; display: block; position: absolute; left: initial; right: -16px; top: calc(50% - 8px); content: ""; }
+.miniconfirm.bottomcenter .mc_content:before { border-color: transparent transparent #ddd transparent; border-style: solid; border-width: 8px; width: 0; height: 0; display: block; position: absolute; bottom: initial; top: -16px; content: ""; }
+/* miniconfirm [Finish] */
