@@ -2,7 +2,7 @@
 jQuery ile geliştirilmiş CSS3 ile güçledirilmiş javascript onay-verme uygulaması.
 
 ### Özellikleri
-  - Örneğin silinmesi gereken bir kaynağın "Silmek istediğinize emin misiniz? [EVET] [HAYIR]" uyarısı sağlar.
+  - Örnek olarak silmek istediğiniz bir kaynak mevcut. Bunun için "Silmek istediğinize emin misiniz? [EVET] [HAYIR]" uyarısı sağlar.
 
 ### Kullanımı
 Uygulamak istediğin nesnenin ' onclick="PS_miniconfirm(this, 'functionname()', 'position')" ' tagına sahip olması gerekmektedir.
