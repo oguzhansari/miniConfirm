@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Miniconfirm by oguzhansari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Miniconfirm</h1>
+      <h2 class="project-tagline">jQuery ile geliştirilmiş CSS3 ile güçledirilmiş javascript uygulaması.</h2>
+      <a href="https://github.com/oguzhansari/miniConfirm" class="btn">View on GitHub</a>
+      <a href="https://github.com/oguzhansari/miniConfirm/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/oguzhansari/miniConfirm/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="miniconfirm" class="anchor" href="#miniconfirm" aria-hidden="true"><span class="octicon octicon-link"></span></a>miniConfirm</h1>
+
+<p>jQuery ile geliştirilmiş CSS3 ile güçledirilmiş javascript onay-verme uygulaması.</p>
+
+<h3>
+<a id="Özellikleri" class="anchor" href="#%C3%96zellikleri" aria-hidden="true"><span class="octicon octicon-link"></span></a>Özellikleri</h3>
+
+<ul>
+<li>Örnek olarak silmek istediğiniz bir kaynak mevcut. Bunun için "Silmek istediğinize emin misiniz? [EVET] [HAYIR]" uyarısı sağlar.</li>
+</ul>
+
+<h3>
+<a id="kullanımı" class="anchor" href="#kullan%C4%B1m%C4%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kullanımı</h3>
+
+<p>Uygulamak istediğin nesnenin ' onclick="PS_miniconfirm(this, 'functionname()', 'position')" ' tagına sahip olması gerekmektedir.</p>
+
+<ul>
+<li>this = o elementi ifade eder (zorunlu)</li>
+<li>functionname = [EVET] 'e tıklandığında çalıştırılacak fonksiyondur.</li>
+<li>position = Uyarı penceresinin posizyonunu belirler Kullanılabilir posizyon değerleri, hiç belirtilmezse "topcenter" olarak uygulanır. Sağ taraf için "rightcenter", Alt taraf için "bottomcenter", Sol taraf için "leftcenter"</li>
+</ul>
+
+<h4>
+<a id="javascript-kaynak-kod" class="anchor" href="#javascript-kaynak-kod" aria-hidden="true"><span class="octicon octicon-link"></span></a>Javascript Kaynak Kod</h4>
+
+<div class="highlight highlight-source-shell"><pre>/<span class="pl-k">*</span>
+    Oğuzhan SARI
+    21.12.2015 14:14:00
+    www.oguzhansari.com
+    miniConfirm - jQuery ile gelişitirilmiş CSS3 ile güçlendirilmiş basit onay uygulaması
+<span class="pl-k">*</span>/
+<span class="pl-k">function</span> <span class="pl-en">OS_miniconfirm(a,</span> b, c) {
+    <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-s"><span class="pl-pds">'</span>.miniconfirm<span class="pl-pds">'</span></span><span class="pl-pds">)</span></span>.<span class="pl-en">remove</span>();
+    var t = <span class="pl-s"><span class="pl-pds">$(</span>a<span class="pl-pds">)</span></span><span class="pl-k">;</span>
+    var ID = codeGenerator(20)<span class="pl-k">;</span>
+    var c = c == undefined <span class="pl-k">?</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> <span class="pl-c1">:</span> c<span class="pl-k">;</span>
+    var html = <span class="pl-s"><span class="pl-pds">'</span>&lt;div class="miniconfirm <span class="pl-pds">'</span></span> + c + <span class="pl-s"><span class="pl-pds">'</span>" id="<span class="pl-pds">'</span></span> + ID + <span class="pl-s"><span class="pl-pds">'</span>" style="top: <span class="pl-pds">'</span></span> + <span class="pl-en">t.position</span>().top + <span class="pl-s"><span class="pl-pds">'</span>px; left: <span class="pl-pds">'</span></span> + <span class="pl-en">t.position</span>().left + <span class="pl-s"><span class="pl-pds">'</span>px"&gt;&lt;div class="mc_content"&gt;&lt;h6 class="ms_h6"&gt;&lt;span&gt;Emin misiniz?&lt;/span&gt;&lt;/h6&gt;&lt;div class="mc_buttons"&gt;&lt;a href="#" class="mc_no"&gt;&lt;i class="psicons-close"&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href="#" class="mc_yes"&gt;&lt;i class="psicons-check"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;<span class="pl-pds">'</span></span>;
+    <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-s"><span class="pl-pds">"</span>body<span class="pl-pds">"</span></span><span class="pl-pds">)</span></span>.append(html)<span class="pl-k">;</span>
+    var mc = <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-s"><span class="pl-pds">'</span>#<span class="pl-pds">'</span></span> + ID<span class="pl-pds">)</span></span>
+    mc.css({ <span class="pl-s"><span class="pl-pds">"</span>display<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>inline-block<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>: miniconfirmCalc(mc, t, <span class="pl-s"><span class="pl-pds">'</span>left<span class="pl-pds">'</span></span>, c), <span class="pl-s"><span class="pl-pds">"</span>top<span class="pl-pds">"</span></span>: miniconfirmCalc(mc, t, <span class="pl-s"><span class="pl-pds">'</span>top<span class="pl-pds">'</span></span>, c), <span class="pl-s"><span class="pl-pds">"</span>right<span class="pl-pds">"</span></span>: miniconfirmCalc(mc, t, <span class="pl-s"><span class="pl-pds">'</span>right<span class="pl-pds">'</span></span>, c), <span class="pl-s"><span class="pl-pds">"</span>bottom<span class="pl-pds">"</span></span>: miniconfirmCalc(mc, t, <span class="pl-s"><span class="pl-pds">'</span>bottom<span class="pl-pds">'</span></span>, c) })<span class="pl-k">;</span>
+    <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-en">window).resize(function</span> () {</span>
+<span class="pl-s">        mc.css({ <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>: miniconfirmCalc(mc, t, <span class="pl-s"><span class="pl-pds">'</span>left<span class="pl-pds">'</span></span>, c), <span class="pl-s"><span class="pl-pds">"</span>top<span class="pl-pds">"</span></span>: miniconfirmCalc(mc, t, <span class="pl-s"><span class="pl-pds">'</span>top<span class="pl-pds">'</span></span>, c), <span class="pl-s"><span class="pl-pds">"</span>right<span class="pl-pds">"</span></span>: miniconfirmCalc(mc, t, <span class="pl-s"><span class="pl-pds">'</span>right<span class="pl-pds">'</span></span>, c), <span class="pl-s"><span class="pl-pds">"</span>bottom<span class="pl-pds">"</span></span>: miniconfirmCalc(mc, t, <span class="pl-s"><span class="pl-pds">'</span>bottom<span class="pl-pds">'</span></span>, c) })<span class="pl-k">;</span></span>
+<span class="pl-s">    });</span>
+<span class="pl-s">    <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-s"><span class="pl-pds">'</span>.mc_no<span class="pl-pds">'</span></span>, <span class="pl-en">mc).click(function</span> () {</span></span>
+<span class="pl-s"><span class="pl-s">        miniconfirmClose(mc)<span class="pl-k">;</span></span></span>
+<span class="pl-s"><span class="pl-s">    });</span></span>
+<span class="pl-s"><span class="pl-s">    <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-s"><span class="pl-pds">'</span>.mc_yes<span class="pl-pds">'</span></span>, <span class="pl-en">mc).click(function</span> () {</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">        FuncStarter = new Function(b)<span class="pl-k">;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">        FuncStarter.call(this)<span class="pl-k">;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">        miniconfirmClose(mc)<span class="pl-k">;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    });</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    <span class="pl-s"><span class="pl-pds">$(</span>document<span class="pl-pds">)</span></span>.click(<span class="pl-k">function</span> <span class="pl-en">(e)</span> {</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">        var ctn_t = t<span class="pl-k">;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">        var ctn = <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>, mc<span class="pl-pds">)</span></span><span class="pl-k">;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">        var ctn_ta = <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-s"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>, t<span class="pl-pds">)</span></span><span class="pl-k">;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">        <span class="pl-k">if</span> (<span class="pl-k">!</span>ctn.is(e.target) <span class="pl-k">&amp;</span> <span class="pl-k">!</span>ctn_t.is(e.target) <span class="pl-k">&amp;</span> <span class="pl-k">!</span>ctn_ta.is(e.target)) {</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">            miniconfirmClose(mc)<span class="pl-k">;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">        }</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    })<span class="pl-k">;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">}</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-k">function</span> <span class="pl-en">miniconfirmClose(mc)</span> {</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    <span class="pl-en">mc.remove</span>();</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">}</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-k">function</span> <span class="pl-en">miniconfirmCalc(mc,</span> t, coor, c) {</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    var bHeight = <span class="pl-en">mc.height</span>();</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    var bWidth = <span class="pl-en">mc.width</span>();</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    var tWidth = <span class="pl-en">t.width</span>();</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    var tHeight = <span class="pl-en">t.height</span>();</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    var left = <span class="pl-en">t.position</span>().left - (bWidth / 2) + (tWidth / 2);</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    var top = <span class="pl-en">t.position</span>().top - bHeight - (tHeight / 2);</span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s">    var wWidth = <span class="pl-s"><span class="pl-pds">$(</span><span class="pl-en">document).width</span>();</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    var right = <span class="pl-s"><span class="pl-pds">"</span>initial<span class="pl-pds">"</span></span><span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    var bottom = <span class="pl-s"><span class="pl-pds">"</span>initial<span class="pl-pds">"</span></span><span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    <span class="pl-k">if</span> (c == <span class="pl-s"><span class="pl-pds">"</span>rightcenter<span class="pl-pds">"</span></span>) {</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        left = <span class="pl-en">t.position</span>().left + tWidth;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        top = <span class="pl-en">t.position</span>().top - <span class="pl-s"><span class="pl-pds">((</span>bHeight <span class="pl-k">/</span> <span class="pl-c1">2</span>) <span class="pl-k">-</span> (tHeight <span class="pl-k">/</span> <span class="pl-c1">2</span><span class="pl-pds">))</span></span>;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    } <span class="pl-k">else</span> <span class="pl-k">if</span> (c == <span class="pl-s"><span class="pl-pds">"</span>leftcenter<span class="pl-pds">"</span></span>) {</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        left = <span class="pl-s"><span class="pl-pds">"</span>initial<span class="pl-pds">"</span></span><span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        top = <span class="pl-en">t.position</span>().top - <span class="pl-s"><span class="pl-pds">((</span>bHeight <span class="pl-k">/</span> <span class="pl-c1">2</span>) <span class="pl-k">-</span> (tHeight <span class="pl-k">/</span> <span class="pl-c1">2</span><span class="pl-pds">))</span></span>;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        right = wWidth - <span class="pl-en">t.position</span>().left;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    } <span class="pl-k">else</span> <span class="pl-k">if</span> (c == <span class="pl-s"><span class="pl-pds">"</span>bottomcenter<span class="pl-pds">"</span></span>) {</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        top = <span class="pl-en">t.position</span>().top + <span class="pl-s"><span class="pl-pds">((</span>bHeight <span class="pl-k">/</span> <span class="pl-c1">2</span>) <span class="pl-k">-</span> (tHeight <span class="pl-k">/</span> <span class="pl-c1">2</span><span class="pl-pds">))</span></span>;</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    }</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    var ret = <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span><span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    <span class="pl-k">if</span> (coor == <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>) {</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        ret = left<span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    } <span class="pl-k">else</span> <span class="pl-k">if</span> (coor == <span class="pl-s"><span class="pl-pds">"</span>top<span class="pl-pds">"</span></span>) {</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        ret = top<span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    } <span class="pl-k">else</span> <span class="pl-k">if</span> (coor == <span class="pl-s"><span class="pl-pds">"</span>right<span class="pl-pds">"</span></span>) {</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        ret = right<span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    } <span class="pl-k">else</span> <span class="pl-k">if</span> (coor == <span class="pl-s"><span class="pl-pds">"</span>bottom<span class="pl-pds">"</span></span>) {</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">        ret = bottom<span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    }</span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">    <span class="pl-k">return</span> ret<span class="pl-k">;</span></span></span></span></span>
+<span class="pl-s"><span class="pl-s"><span class="pl-s"><span class="pl-s">}</span></span></span></span></pre></div>
+
+<h4>
+<a id="css-kaynak-kod" class="anchor" href="#css-kaynak-kod" aria-hidden="true"><span class="octicon octicon-link"></span></a>CSS Kaynak Kod</h4>
+
+<div class="highlight highlight-source-shell"><pre>/<span class="pl-k">*</span> miniconfirm [Start] <span class="pl-k">*</span>/
+.miniconfirm { position: absolute<span class="pl-k">;</span> display: none<span class="pl-k">;</span> -webkit-border-radius: 3px<span class="pl-k">;</span> -moz-border-radius: 3px<span class="pl-k">;</span> border-radius: 3px<span class="pl-k">;</span> }
+.miniconfirm:after { display: block<span class="pl-k">;</span> content: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span><span class="pl-k">;</span> clear: both<span class="pl-k">;</span> }
+.miniconfirm .mc_content { border: 1px solid <span class="pl-c">#ddd; position: relative; display: block; background-color: #fff; -webkit-border-radius: 3px; box-shadow: 0 0 8px #b5b5b5; -moz-border-radius: 3px; border-radius: 3px; }</span>
+.miniconfirm .mc_content:after { display: block<span class="pl-k">;</span> content: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span><span class="pl-k">;</span> clear: both<span class="pl-k">;</span> }
+.miniconfirm .mc_content:before { border-color: <span class="pl-c">#ddd transparent transparent transparent; border-style: solid; border-width: 8px; width: 0; height: 0; display: block; position: absolute; bottom: -16px; left: calc(50% - 8px); content: ""; }</span>
+.miniconfirm .mc_content .ms_h6 { padding: 10px 5px<span class="pl-k">;</span> background-color: <span class="pl-c">#eee; font-size: 14px; color: #666; font-weight: 600; -webkit-border-top-left-radius: 3px; -webkit-border-top-right-radius: 3px; -moz-border-radius-topleft: 3px; -moz-border-radius-topright: 3px; border-top-left-radius: 3px; border-top-right-radius: 3px; }</span>
+.miniconfirm .mc_content .mc_buttons { padding: 5px<span class="pl-k">;</span> }
+.miniconfirm .mc_content .mc_buttons:after { display: block<span class="pl-k">;</span> content: <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span><span class="pl-k">;</span> clear: both<span class="pl-k">;</span> }
+.miniconfirm .mc_content .mc_buttons a { border: 1px solid <span class="pl-c">#eee; background-color: #fff; height: 30px; line-height: 30px; text-align: center; text-decoration: none; color: #666; display: block; width: calc(50% - 2.5px); float: left; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; box-sizing: border-box; -webkit-transition: All 500ms ease; -moz-transition: All 500ms ease; -o-transition: All 500ms ease; transition: All 500ms ease; }</span>
+.miniconfirm .mc_content .mc_buttons a i:before { font-size: 13px<span class="pl-k">;</span> }
+.miniconfirm .mc_content .mc_buttons a.mc_yes { margin-left: 2.5px<span class="pl-k">;</span> }
+.miniconfirm .mc_content .mc_buttons a.mc_no { margin-right: 2.5px<span class="pl-k">;</span> }
+.miniconfirm .mc_content .mc_buttons a.mc_yes:hover { background-color: <span class="pl-c">#33b86c; border-color: #106f39; }</span>
+.miniconfirm .mc_content .mc_buttons a.mc_no:hover { background-color: <span class="pl-c">#ef5350; border-color: #8f1e1c; }</span>
+.miniconfirm .mc_content .mc_buttons a:hover i:before { color: <span class="pl-c">#fff; }</span>
+.miniconfirm.rightcenter { padding-left: 12px<span class="pl-k">;</span> }
+.miniconfirm.leftcenter { padding-right: 12px<span class="pl-k">;</span> }
+.miniconfirm.rightcenter .mc_content:before { border-color: transparent <span class="pl-c">#ddd transparent transparent; border-style: solid; border-width: 8px; width: 0; height: 0; display: block; position: absolute; left: -16px; top: calc(50% - 8px); content: ""; }</span>
+.miniconfirm.leftcenter .mc_content:before { border-color: transparent transparent transparent <span class="pl-c">#ddd; border-style: solid; border-width: 8px; width: 0; height: 0; display: block; position: absolute; left: initial; right: -16px; top: calc(50% - 8px); content: ""; }</span>
+.miniconfirm.bottomcenter .mc_content:before { border-color: transparent transparent <span class="pl-c">#ddd transparent; border-style: solid; border-width: 8px; width: 0; height: 0; display: block; position: absolute; bottom: initial; top: -16px; content: ""; }</span>
+/<span class="pl-k">*</span> miniconfirm [Finish] <span class="pl-k">*</span>/</pre></div>
+
+<h3>
+<a id="versiyon" class="anchor" href="#versiyon" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versiyon</h3>
+
+<p>1.0</p>
+
+<h3>
+<a id="teknik" class="anchor" href="#teknik" aria-hidden="true"><span class="octicon octicon-link"></span></a>Teknik</h3>
+
+<p>jQuery 2.1.4 ( <a href="http://www.jquery.com">http://www.jquery.com</a> )</p>
+
+<h3>
+<a id="kurulum" class="anchor" href="#kurulum" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kurulum</h3>
+
+<p>Yukarıdaki javascript ve css kaynak kodlarını sitenize çağırın. Sonrasında aşağıdaki örnek kod işinizi görecektir.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-k">&lt;</span>a href=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> onclick=<span class="pl-s"><span class="pl-pds">"</span>OS_miniconfirm(this, 'tester()', 'leftcenter')<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>X<span class="pl-k">&lt;</span>/a<span class="pl-k">&gt;</span></pre></div>
+
+<blockquote>
+<p>Teşekkürler. :)</p>
+
+<p>Oğuzhan SARI</p>
+
+<p><a href="mailto:os@oguzhansari.com">os@oguzhansari.com</a></p>
+
+<p><a href="http://www.oguzhansari.com">www.oguzhansari.com</a></p>
+</blockquote>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/oguzhansari/miniConfirm">Miniconfirm</a> is maintained by <a href="https://github.com/oguzhansari">oguzhansari</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-71659236-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
