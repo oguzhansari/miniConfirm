@@ -5,7 +5,7 @@ jQuery ile geliştirilmiş CSS3 ile güçledirilmiş javascript onay-verme uygul
   - Örnek olarak silmek istediğiniz bir kaynak mevcut. Bunun için "Silmek istediğinize emin misiniz? [EVET] [HAYIR]" uyarısı sağlar.
 
 ### Kullanımı
-Uygulamak istediğin nesnenin ' onclick="PS_miniconfirm(this, 'functionname()', 'position')" ' tagına sahip olması gerekmektedir.
+Uygulamak istediğin nesnenin ' onclick="OS_miniconfirm(this, 'functionname()', 'position')" ' tagına sahip olması gerekmektedir.
 
   - this = o elementi ifade eder (zorunlu)
   - functionname = [EVET] 'e tıklandığında çalıştırılacak fonksiyondur.
